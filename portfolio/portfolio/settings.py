@@ -137,5 +137,6 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3001",  # Add the address of your React development server
+    "http://localhost:3001", 
+    "https://shantanus-resume.netlify.app"
 ]
