@@ -12,10 +12,10 @@ from .forms import ContactForm
 class ProjectListView(generics.ListCreateAPIView):
     queryset = Project.objects.all()
     serializer_class = ProjectSerializer
-# views.py
 
 
-@csrf_exempt  # This is used for demonstration purposes. Use a better method in production.
+
+@csrf_exempt 
 @require_POST
 def contact_submission(request):
     data = request.POST
