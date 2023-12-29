@@ -24,12 +24,12 @@ def contact_submission(request):
     if form.is_valid():
         form.save()
 
-        # Send email
+      
         send_mail(
             'New Contact Form Submission',
             f'Email: {form.cleaned_data["email"]}\nSubject: {form.cleaned_data["subject"]}\nMessage: {form.cleaned_data["message"]}',
-            'shantanuchavhan002@gmail.com',  # Change this to your email
-            [f'{form.cleaned_data["email"]}'],  # Change this to the recipient email(s)
+            'shantanuchavhan002@gmail.com',  
+            [f'{form.cleaned_data["email"]}'],  
             fail_silently=False,
         )
 
