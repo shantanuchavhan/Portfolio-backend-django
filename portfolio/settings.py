@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
     'api',
+    "cloudinary_storage"
 ]
 
 MIDDLEWARE = [
@@ -110,6 +111,12 @@ cloudinary.config(
     secure=True,
 )
 
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'ddw1upvx3',
+    'API_KEY': '935838691454949',
+    'API_SECRET': '2ZR0CSz_KyiZUN96SEmtB9Zwp7U'
+}
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -153,8 +160,9 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+
+MEDIA_URL = '/media/'  # or any prefix you choose
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 
 CORS_ALLOWED_ORIGINS = [
