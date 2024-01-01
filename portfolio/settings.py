@@ -102,12 +102,7 @@ DATABASES['default']=dj_database_url.parse("postgres://portfolio_data_ar0w_user:
 # settings.py
 
 CLOUDINARY_URL = "cloudinary://935838691454949:2ZR0CSz_KyiZUN96SEmtB9Zwp7U@ddw1upvx3"
-cloudinary.config(
-    cloud_name="ddw1upvx3",
-    api_key="935838691454949",
-    api_secret="2ZR0CSz_KyiZUN96SEmtB9Zwp7U",
-    secure=True,
-)
+
 
 
 # Password validation
