@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 from pathlib import Path
 import dj_database_url
 import os
+import cloudinary
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -102,12 +103,12 @@ DATABASES['default']=dj_database_url.parse("postgres://portfolio_data_ar0w_user:
 # settings.py
 
 CLOUDINARY_URL = "cloudinary://935838691454949:2ZR0CSz_KyiZUN96SEmtB9Zwp7U@ddw1upvx3"
-# cloudinary.config(
-#     cloud_name="ddw1upvx3",
-#     api_key="935838691454949",
-#     api_secret="2ZR0CSz_KyiZUN96SEmtB9Zwp7U",
-#     secure=True,
-# )
+cloudinary.config(
+    cloud_name="ddw1upvx3",
+    api_key="935838691454949",
+    api_secret="2ZR0CSz_KyiZUN96SEmtB9Zwp7U",
+    secure=True,
+)
 
 
 # Password validation
