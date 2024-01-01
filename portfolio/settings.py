@@ -88,7 +88,8 @@ DATABASES = {
         'USER': 'postgres',
         'PASSWORD': 'Shantanu8983@',
         'HOST': 'localhost',  # Set to your PostgreSQL server host
-        'PORT': '5432',       # Set to your PostgreSQL server port
+        'PORT': '5432',   
+        # Set to your PostgreSQL server port
     }
 }
 
@@ -96,6 +97,17 @@ database_url = os.environ.get("DATABASE_URL")
 DATABASES["default"] = dj_database_url.parse(database_url)
 
 DATABASES['default']=dj_database_url.parse("postgres://portfolio_data_ar0w_user:JusyAtgVEg1yWMI6NJETCkBbpXptEOy3@dpg-cm8gpr8cmk4c7391v69g-a.oregon-postgres.render.com/portfolio_data_ar0w")
+
+
+# settings.py
+
+CLOUDINARY_URL = "cloudinary://935838691454949:2ZR0CSz_KyiZUN96SEmtB9Zwp7U@ddw1upvx3"
+# cloudinary.config(
+#     cloud_name="ddw1upvx3",
+#     api_key="935838691454949",
+#     api_secret="2ZR0CSz_KyiZUN96SEmtB9Zwp7U",
+#     secure=True,
+# )
 
 
 # Password validation

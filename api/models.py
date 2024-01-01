@@ -2,12 +2,12 @@
 
 from django.db import models
 
-from django.db import models
+import cloudinary.models
 
 class Project(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField()
-    images = models.ImageField(upload_to='project_images/', null=True, blank=True)
+    images = cloudinary.models.CloudinaryField('image')
     videos = models.FileField(upload_to='project_videos/', null=True, blank=True)
 
     def __str__(self):
