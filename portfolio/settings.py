@@ -164,7 +164,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 MEDIA_URL = '/media/'  # or any prefix you choose
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+DEFAULT_FILE_STORAGE = "cloudinary://935838691454949:2ZR0CSz_KyiZUN96SEmtB9Zwp7U@ddw1upvx3"
 
 
 CORS_ALLOWED_ORIGINS = [
