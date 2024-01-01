@@ -14,7 +14,7 @@ from pathlib import Path
 import dj_database_url
 import os
 import cloudinary
-
+import corsheaders
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -32,7 +32,8 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 DEBUG =os.environ.get("DEBUG","False").lower()=="true"
 # 
 
-ALLOWED_HOSTS = ["portfolioapp-q7ra.onrender.com ", "127.0.0.1:8000",  "127.0.0.1"]
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS")
+#  ["portfolioapp-q7ra.onrender.com ", "127.0.0.1:8000",  "127.0.0.1"]
 
 
 # Application definition
