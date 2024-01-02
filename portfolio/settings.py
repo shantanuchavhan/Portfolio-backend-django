@@ -25,17 +25,20 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-!9+g&2rq2y&4oi2#u^756$itvd%#ql#82r*fbh5(eq#5mc@&+!'
-# os.environ.get("SECRET_KEY") 
+SECRET_KEY = os.environ.get("SECRET_KEY") 
+# 'django-insecure-!9+g&2rq2y&4oi2#u^756$itvd%#ql#82r*fbh5(eq#5mc@&+!'
+ 
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG =True
-# os.environ.get("DEBUG","False").lower()=="true"
+DEBUG = os.environ.get("DEBUG","False").lower()=="true"
 
-ALLOWED_HOSTS = ["portfolioapp-q7ra.onrender.com ", "127.0.0.1:8000",  "127.0.0.1"]
+# True
+
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
+
+#  ["portfolioapp-q7ra.onrender.com ", "127.0.0.1:8000",  "127.0.0.1"]
 #  
-# os.environ.get("ALLOWED_HOSTS").split(" ")
 
 
 # Application definition
@@ -100,8 +103,9 @@ DATABASES = {
     }
 }
 
-database_url = 'postgres://portfolio_data_ar0w_user:JusyAtgVEg1yWMI6NJETCkBbpXptEOy3@dpg-cm8gpr8cmk4c7391v69g-a.oregon-postgres.render.com/portfolio_data_ar0w'
-# os.environ.get("DATABASE_URL") 
+database_url = os.environ.get("DATABASE_URL") 
+# 'postgres://portfolio_data_ar0w_user:JusyAtgVEg1yWMI6NJETCkBbpXptEOy3@dpg-cm8gpr8cmk4c7391v69g-a.oregon-postgres.render.com/portfolio_data_ar0w'
+
 
 DATABASES["default"] = dj_database_url.parse(database_url)
 
