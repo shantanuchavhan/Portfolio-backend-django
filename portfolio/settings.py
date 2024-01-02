@@ -149,6 +149,23 @@ USE_I18N = True
 
 USE_TZ = True
 
+# settings.py
+
+# Internationalization
+LANGUAGES = [
+    ('en', 'English'),
+    ('mr', 'Marathi'),
+    ('hi', 'Hindi'),
+]
+
+LOCALE_PATHS = [
+    BASE_DIR / "locale",  # Add the 'locale' directory at the project's base directory
+]
+
+USE_I18N = True
+USE_L10N = True
+USE_TZ = True
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
