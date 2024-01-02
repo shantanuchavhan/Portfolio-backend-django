@@ -18,7 +18,6 @@ class ProjectListView(generics.ListCreateAPIView):
 
 
 
-
 @csrf_exempt
 @require_POST
 def contact_submission(request):
