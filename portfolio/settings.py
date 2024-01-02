@@ -59,6 +59,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
      'corsheaders.middleware.CorsMiddleware',
+     'django.middleware.locale.LocaleMiddleware',
 ]
 
 ROOT_URLCONF = 'portfolio.urls'
@@ -149,22 +150,19 @@ USE_I18N = True
 
 USE_TZ = True
 
-# settings.py
-
-# Internationalization
 LANGUAGES = [
-    ('en', 'English'),
-    ('mr', 'Marathi'),
-    ('hi', 'Hindi'),
+    ('en', _('English')),
+    ('es', _('Spanish')),
+    # Add more languages as needed
 ]
 
-LOCALE_PATHS = [
-    BASE_DIR / "locale",  # Add the 'locale' directory at the project's base directory
-]
+LANGUAGE_CODE = 'en'
 
+# Enable i18n (internationalization) and l10n (localization)
 USE_I18N = True
-USE_L10N = True
-USE_TZ = True
+
+# Set the timezone for the site
+TIME_ZONE = 'UTC'
 
 
 # Static files (CSS, JavaScript, Images)
