@@ -1,7 +1,7 @@
 # main/views.py
 
 from rest_framework import generics
-from .models import Project
+from .models import Project,Category
 from .serializers import ProjectSerializer
 from django.core.mail import send_mail
 from django.http import JsonResponse
@@ -10,11 +10,31 @@ from django.views.decorators.http import require_POST
 from .forms import ContactForm
 import json
 from django.http import JsonResponse
+from django.shortcuts import get_object_or_404
 
 class ProjectListView(generics.ListCreateAPIView):
     queryset = Project.objects.all()
     serializer_class = ProjectSerializer
 
+
+def get_projects(request, category=None):
+    projects = Project.objects.all()
+
+    if category:
+        category_instance = get_object_or_404(Category, name=category)
+        projects = projects.filter(categories=category_instance)
+
+    project_data = [
+        {
+            'id': project.id,
+            'title': project.title,
+            'description': project.description,
+            'images': str(project.images),
+        }
+        for project in projects
+    ]
+
+    return JsonResponse(project_data, safe=False)
 
 
 
