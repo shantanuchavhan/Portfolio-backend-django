@@ -30,6 +30,9 @@ def get_projects(request, category=None):
         category_instance = get_object_or_404(Category, name=category)
         projects = projects.filter(categories=category_instance)
 
+    language = request.GET.get('language', 'en')  # Default to English if language is not specified
+    activate(language)  # Activate the specified language for translations
+
     project_data = [
         {
             'id': project.id,
@@ -37,7 +40,7 @@ def get_projects(request, category=None):
             'description': project.description,
             'images': str(project.images),
         }
-        for project in projects
+        for project in projects.filter(language__code=language)
     ]
 
     return JsonResponse(project_data, safe=False)
