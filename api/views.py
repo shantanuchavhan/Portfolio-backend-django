@@ -11,10 +11,16 @@ from .forms import ContactForm
 import json
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
+from django.utils.translation import activate
+
 
 class ProjectListView(generics.ListCreateAPIView):
-    queryset = Project.objects.all()
     serializer_class = ProjectSerializer
+
+    def get_queryset(self):
+        language = self.request.query_params.get('language', 'en')  # Default to English if language is not specified
+        activate(language)  # Activate the specified language for translations
+        return Project.objects.filter(language__code=language)
 
 
 def get_projects(request, category=None):

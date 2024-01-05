@@ -25,20 +25,20 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get("SECRET_KEY") 
-# 'django-insecure-!9+g&2rq2y&4oi2#u^756$itvd%#ql#82r*fbh5(eq#5mc@&+!'
- 
+SECRET_KEY =  os.environ.get("SECRET_KEY") 
+#'django-insecure-!9+g&2rq2y&4oi2#u^756$itvd%#ql#82r*fbh5(eq#5mc@&+!'
+#
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG","False").lower()=="true"
+#True
 
-# True
 
-ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
-
-#  ["portfolioapp-q7ra.onrender.com ", "127.0.0.1:8000",  "127.0.0.1"]
-#  
+ALLOWED_HOSTS =os.environ.get("ALLOWED_HOSTS").split(" ") 
+#["portfolioapp-q7ra.onrender.com ", "127.0.0.1:8000",  "127.0.0.1"]
+ 
+# 
 
 
 # Application definition
@@ -58,6 +58,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -104,8 +105,8 @@ DATABASES = {
 }
 
 database_url = os.environ.get("DATABASE_URL") 
-# 'postgres://portfolio_data_ar0w_user:JusyAtgVEg1yWMI6NJETCkBbpXptEOy3@dpg-cm8gpr8cmk4c7391v69g-a.oregon-postgres.render.com/portfolio_data_ar0w'
-
+#'postgres://portfolio_data_ar0w_user:JusyAtgVEg1yWMI6NJETCkBbpXptEOy3@dpg-cm8gpr8cmk4c7391v69g-a.oregon-postgres.render.com/portfolio_data_ar0w'
+# 
 
 DATABASES["default"] = dj_database_url.parse(database_url)
 
@@ -151,25 +152,20 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+LANGUAGES = [
+    ('en', 'English'),  
+    ('es', 'Spanish'), 
+    ('fr', 'French'),
+    ('hi', 'Hindi'),
+]
 
+TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
 
-LANGUAGES = [
-    ('en', _('English')),
-    ('es', _('Spanish')),
-    # Add more languages as needed
-]
 
-LANGUAGE_CODE = 'en'
 
-# Enable i18n (internationalization) and l10n (localization)
-USE_I18N = True
-
-# Set the timezone for the site
-TIME_ZONE = 'UTC'
 
 
 # Static files (CSS, JavaScript, Images)
